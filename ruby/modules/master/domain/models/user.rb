@@ -2,7 +2,7 @@ module Master
   module Domain
     module Models
       class User
-        attr_accessor: :id, :user_name
+        attr_accessor :id, :name
 
         def initialize(id:,name:)
           @id = id

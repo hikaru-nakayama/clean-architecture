@@ -10,8 +10,8 @@ module Master
             end
             user = Infrastructure::Repositories::UserRepository.create(user_name: user_name)
             Master::UseCases::Dtos::UserDto.new(
-              id: user.id,
-              user_name: user.name
+              user.id,
+              user.name
             )
           end
         end
