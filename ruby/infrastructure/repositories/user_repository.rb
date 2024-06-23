@@ -3,11 +3,11 @@ module Infrastructure
     class UserRepository
 
     # @param [String] user_name
-    # @return [Domain::User]
-    def find_by_user_name(user_name)
-      db = InMemoryDB.new
+    # @return [Domain::Models::User]
+    def find_by_user_name(user_name:)
+      db = InMemoryDB.instance.store
       user = db[:user].find {|u| u.user_name == user_name }
-      Domain::User.new(user_name: user[:user_name], id: user[:id])
+      Domain::Models::User.new(user_name: user[:user_name], id: user[:id])
     end
   end
 end
